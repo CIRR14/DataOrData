@@ -91,7 +91,6 @@ class App extends Component {
     });
   }
 
-
   //Remove item function//
   removeItem(itemId) {
     const itemRef = firebase.database().ref(`/items/${itemId}`);
