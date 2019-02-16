@@ -108,6 +108,7 @@ class App extends Component {
   render() {
 
     let myArray = this.state.items.reverse();
+    
     return (
       <div className='app'>
         <header>
@@ -116,8 +117,8 @@ class App extends Component {
                 <img 
     src="logo.svg" 
     alt=""
-    height="50px"
-    width="50px" /> SST
+    height="40px"
+    width="40px" /> SST
               </h1>
               {this.state.user ?
                   <button onClick = {this.logout}> Log Out </button>
