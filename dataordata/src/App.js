@@ -100,9 +100,9 @@ class App extends Component {
   
 
 
-  // see report of item function//
+  // collect of item function//
 
-  // see report of item function//
+  // collect of item function//
 
 
   render() {
@@ -146,8 +146,8 @@ class App extends Component {
                     {myArray.map((item) => {
                       return (
                         <li key={item.id}>
-                          <h3>{item.title}</h3>
-                          <p>Supervised by: {item.user}
+                          <h3>Completed by: <b>{item.title}</b></h3>
+                          <p>Supervised by: <b>{item.user}</b>
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ?
                               <button onClick={() => this.removeItem(item.id)}>Remove</button> : null}
                               
