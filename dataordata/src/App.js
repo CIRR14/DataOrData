@@ -106,6 +106,8 @@ class App extends Component {
 
 
   render() {
+
+    let myArray = this.state.items.reverse();
     return (
       <div className='app'>
         <header>
@@ -140,7 +142,7 @@ class App extends Component {
             <section className='display-item'>
                 <div className="wrapper">
                   <ul>
-                    {this.state.items.map((item) => {
+                    {myArray.map((item) => {
                       return (
                         <li key={item.id}>
                           <h3>{item.title}</h3>
