@@ -15,7 +15,7 @@ const styles = {
         flexGrow: 1
     },
     navbar:{
-        backgroundColor: '#283947'
+        backgroundColor: '#283948'
     },
     button: {
         backgroundColor: '#DCAB8B',
@@ -62,8 +62,8 @@ constructor(props) {
                 <AppBar position="static" className={classes.navbar}>
                     <Toolbar>
                         <img src="../logo.svg" alt="sst logo" height="40px" width="40px"/>
-                        <Typography variant="h4" color="inherit" className={classes.grow}>
-                            SST
+                        <Typography align="center" variant="h4" color="inherit" className={classes.grow}>
+                        Risk Initiative Program
                         </Typography>
                         {user ?
                             <Button className={classes.button} color="inherit" onClick={this.logout}> Log Out </Button>

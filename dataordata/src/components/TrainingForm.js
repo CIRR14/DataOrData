@@ -4,7 +4,6 @@ import firebase from "../firebase";
 import Divider from "@material-ui/core/Divider/Divider";
 import getData from '../api/route';
 
-
 class TrainingForm extends Component {
 
     constructor(props) {
