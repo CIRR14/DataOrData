@@ -15,6 +15,7 @@ class TrainingForm extends Component {
             data: [],
             user: '',
             doneLoading:false,
+            flip: true
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,9 +49,13 @@ class TrainingForm extends Component {
 
         itemsRef.push(item);
 
+        let x = !this.state.flip;
+        console.log(x);
+
         this.setState({
             currentItem: '', //clears out inputs
-            username: '' //clears out inputs
+            username: '', //clears out inputs
+            flip: x
         });
     }
 
@@ -74,14 +79,20 @@ class TrainingForm extends Component {
                                value={item.currentItem}/>
                         <Button type="submit" className={classes.button}>Add </Button>
                         <Divider/>
-                        <div>
-                            Location: {data[1].fields.city}, {data[1].fields.state},
-                            Date: {data[1].fields.date_detailed},
-                            {data[1].fields.description},
+                        {this.state.flip === true ?
+                            <div>
+                                Location: {data[1].fields.city}, {data[1].fields.state},
+                                Date: {data[1].fields.date_detailed},
+                                {data[1].fields.description},
+                            </div>
+                            :
+                            <div>
+                                Location: {data[5].fields.city}, {data[5].fields.state},
+                                Date: {data[5].fields.date_detailed},
+                                {data[5].fields.description},
+                            </div>
+                        }
 
-
-
-                        </div>
 
                     </form>
                 </Card>
