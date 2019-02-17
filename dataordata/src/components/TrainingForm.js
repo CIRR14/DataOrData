@@ -49,6 +49,7 @@ class TrainingForm extends Component {
 
         itemsRef.push(item);
 
+        console.log('this props: ' , this.props)
         let x = !this.state.flip;
         console.log(x);
 
@@ -62,7 +63,7 @@ class TrainingForm extends Component {
 
     render() {
         const {classes, user, item} = this.props;
-        const {data} = this.state;
+        const {data, currentItem} = this.state;
         return (
             <div>
             {this.state.doneLoading &&
@@ -76,7 +77,7 @@ class TrainingForm extends Component {
                         {console.log(item)}
                         <input className={classes.input} type="text" name="currentItem"
                                placeholder="Who is doing the training?" onChange={this.handleChange}
-                               value={item.currentItem}/>
+                               value={currentItem}/>
                         <Button type="submit" className={classes.button}>Add </Button>
                         <Divider/>
                         
@@ -115,7 +116,7 @@ class TrainingForm extends Component {
                         <Grid container spacing={4}>
                             <Grid item xs={12}><Typography align='center' variant="h5" color='textPrimary'>Outcome of Shootings On School Grounds</Typography></Grid>
                             <Grid item xs={12}><Typography align='center' variant="h6" color='textPrimary'>418 incidents since 2013</Typography></Grid>
-                            <Grid item xs={12} align="center"> <img src="../map.png" height="432px" width="500px"/> </Grid>
+                            <Grid item xs={12} align="center"> <img src="../map.png" height="432px" width="500px" alt="shooting map"/> </Grid>
                         </Grid>
                     </form>
                 </Card>
