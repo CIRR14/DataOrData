@@ -97,9 +97,9 @@ ul {
 }
 
 li {
-  width: calc(50% - 50px);
+  width: calc(100% - 50px);
   list-style-type: none;
-  margin-right: 50px;
+  margin-right: 30px;
   background-color: #B9B2A7;
   color: #000;
   margin-bottom: 30px;
@@ -140,6 +140,25 @@ button {
   font-size: 14px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
   padding: 10px 6px;
+}
+
+.remove {
+  background-color: #ED553B;
+}
+
+.collapsible{
+
+}
+
+.active, .collapsible:hover {
+  background-color: #283947;
+}
+
+.report{
+  padding: 0 18px;
+ 
+  overflow: hidden;
+  background-color: #f1f1f1;
 }
 
 .user-profile {

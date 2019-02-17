@@ -107,6 +107,27 @@ class App extends Component {
 
   render() {
 
+
+
+
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+
+
+
     let myArray = this.state.items.reverse();
     
     return (
@@ -145,14 +166,29 @@ class App extends Component {
                   <ul>
                     {myArray.map((item) => {
                       return (
+                    
                         <li key={item.id}>
+                        <div class ="container">
+                    
+
                           <h3>Completed by: <b>{item.title}</b></h3>
-                          <p>Supervised by: <b>{item.user}</b>
+                          <div>Supervised by: <b>{item.user}</b>
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ?
-                              <button onClick={() => this.removeItem(item.id)}>Remove</button> : null}
-                              
-                          </p>
+                              <button className="remove" onClick={() => this.removeItem(item.id)}>Remove</button> : null}
+
+                              </div>
+                    
+
+                              <button className="collapsible">See Report</button>
+                      
+
+                              <div className = "report">
+                                <p> show data here </p>
+                              </div>
+
+                        </div>
                         </li>
+                  
                       )
                     })}
                   </ul>
