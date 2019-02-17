@@ -36,7 +36,7 @@ const styles = theme => ({
         backgroundColor: '#DCAB8B'
     },
     remove:{
-        color: '#ff001d'
+        color: '#FF676D'
     }
 });
 
@@ -66,7 +66,7 @@ class UserCard extends React.Component {
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
                     {user === displayName || user === email ?
-                        <Button className={classes.remove} onClick={() => this.removeItem(id)}><Delete/></Button> : null}
+                        <Button className={classes.remove} onClick={() => this.removeItem(id)}><Delete/>  Remove</Button> : null}
                     <Button
                         className={classnames(classes.expand, {
                             [classes.expandOpen]: this.state.expanded,

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Card, withStyles, List, ListItem, Typography, Grid} from '@material-ui/core'
+import {Button, Card, withStyles, Typography, Grid} from '@material-ui/core'
 import firebase from "../firebase";
 import Divider from "@material-ui/core/Divider/Divider";
 import getData from '../api/route';
@@ -92,8 +92,8 @@ class TrainingForm extends Component {
                                     <Grid item xs={4}><Typography variant ="h6">University:</Typography></Grid> <Grid item xs={8}>{data[1].fields.title}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Location:</Typography></Grid> <Grid item xs={8}>{data[1].fields.city}, {data[1].fields.state}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Date:</Typography></Grid><Grid item xs={8}>{data[1].fields.date_detailed}</Grid>
-                                    <Grid item xs={4}><Typography variant ="h6">Description:</Typography></Grid> <Grid item xs={8}>{data[1].fields.description}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Fatalities:</Typography></Grid> <Grid item xs={8}>{data[1].fields.total_number_of_fatalities}</Grid>
+                                    <Grid item xs={4}><Typography variant ="h6">Description:</Typography></Grid> <Grid item xs={8}>{data[1].fields.description}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Possible Motive:</Typography></Grid> <Grid item xs={8}>{data[1].fields.possible_motive_detailed}</Grid>
 
                                 </Grid>
@@ -104,14 +104,19 @@ class TrainingForm extends Component {
                                     <Grid item xs={4}><Typography variant ="h6">University:</Typography></Grid> <Grid item xs={8}>{data[6].fields.title}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Location:</Typography></Grid> <Grid item xs={8}>{data[6].fields.city}, {data[6].fields.state}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Date:</Typography></Grid><Grid item xs={8}>{data[6].fields.date_detailed}</Grid>
-                                    <Grid item xs={4}><Typography variant ="h6">Description:</Typography></Grid> <Grid item xs={8}>{data[6].fields.description}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Fatalities:</Typography></Grid> <Grid item xs={8}>{data[6].fields.total_number_of_fatalities}</Grid>
+                                    <Grid item xs={4}><Typography variant ="h6">Description:</Typography></Grid> <Grid item xs={8}>{data[6].fields.description}</Grid>
                                     <Grid item xs={4}><Typography variant ="h6">Possible Motive:</Typography></Grid> <Grid item xs={8}>{data[6].fields.possible_motive_detailed}</Grid>
 
                                 </Grid>
                             </div>
                         }
-
+                        <Grid container spacing={24}><Grid item xs={12}>   ~   </Grid></Grid>
+                        <Grid container spacing={4}>
+                            <Grid item xs={12}><Typography align='center' variant="h5" color='textPrimary'>Outcome of Shootings On School Grounds</Typography></Grid>
+                            <Grid item xs={12}><Typography align='center' variant="h6" color='textPrimary'>418 incidents since 2013</Typography></Grid>
+                            <Grid item xs={12} align="center"> <img src="../map.png" height="432px" width="500px"/> </Grid>
+                        </Grid>
                     </form>
                 </Card>
             </div>

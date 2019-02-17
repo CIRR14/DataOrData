@@ -61,7 +61,7 @@ constructor(props) {
             <div className={classes.root}>
                 <AppBar position="static" className={classes.navbar}>
                     <Toolbar>
-                        <img src="../logo.svg" alt="sst logo" height="40px" width="40px"/>
+                        <img src="../logo.svg" alt="sst logo" height="65px" width="65px"/>
                         <Typography align="center" variant="h4" color="inherit" className={classes.grow}>
                         Risk Initiative Program
                         </Typography>
