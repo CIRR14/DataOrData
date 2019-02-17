@@ -93,9 +93,9 @@ class UserCard extends React.Component {
                                     {title} PASSED 
                             </Typography>
                             <Typography paragraph>
-                                    {title} chose to FIGHT and LIVED
+                                    {title} chose to HID and LIVED
                             </Typography>
-                            <Typography align="center" className={classes.report} paragraph>CONGRATS!</Typography>
+                            <Typography align="center" className={classes.report} paragraph> CONGRATS!</Typography>
                             </div>
                         </Typography>
                     </CardContent>
