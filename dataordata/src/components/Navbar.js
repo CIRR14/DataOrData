@@ -12,7 +12,8 @@ const styles = {
         flexGrow: 1
     },
     grow: {
-        flexGrow: 1
+        flexGrow: 1,
+        fontWeight: ""
     },
     navbar:{
         backgroundColor: '#283948'
@@ -63,7 +64,7 @@ constructor(props) {
                     <Toolbar>
                         <img src="../logo.svg" alt="sst logo" height="65px" width="65px"/>
                         <Typography align="center" variant="h4" color="inherit" className={classes.grow}>
-                        Risk Initiative Program
+                        Active Shooter Emergency Response Training
                         </Typography>
                         {user ?
                             <Button className={classes.button} color="inherit" onClick={this.logout}> Log Out </Button>

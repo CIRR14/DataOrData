@@ -25,6 +25,10 @@ const styles = theme => ({
     expandOpen: {
         // transform: 'rotate(180deg)',
     },
+
+    report:{
+        fontWeight: "Bold"
+    },
     avatar: {
         backgroundColor: '#fff',
     },
@@ -81,17 +85,16 @@ class UserCard extends React.Component {
                 {/*Collapsible starts*/}
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph>Report:</Typography>
+                        <Typography className={classes.report} paragraph>Report:</Typography>
                         <Typography paragraph>
-                            Show Data
                             <div className="report">
-                                <p><bold>(add timestamp)</bold></p>
-                                <p>
-                                    {user}
-                                    (died or lived **collect boolean, if true then live, if false then die**) </p>
-                                <p>
-                                    {user}
-                                    chose to (**collect to (**run/hide/fought**) and (lived/died**boolean**)</p>
+                            <Typography align="center" className={classes.report} paragraph>(add timestamp)</Typography>
+                            <Typography paragraph>
+                                    {user} (died or lived **collect boolean, if true then live, if false then die**) 
+                            </Typography>
+                            <Typography paragraph>
+                                    {user} chose to (**collect to (**run/hide/fought**) and (lived/died**boolean**)
+                            </Typography>
                             </div>
                         </Typography>
                     </CardContent>
