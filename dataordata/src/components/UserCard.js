@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import classnames from 'classnames';
-import {Button, IconButton, Typography, Collapse, CardHeader, CardActions, CardContent, Card} from '@material-ui/core/';
+import {Button, Typography, Collapse, CardHeader, CardActions, CardContent, Card} from '@material-ui/core/';
 import {PieChart, Delete} from '@material-ui/icons/';
 import firebase from "../firebase";
 
@@ -53,7 +53,7 @@ class UserCard extends React.Component {
 
 
     render() {
-        const {classes, item, user, dude, id} = this.props;
+        const {classes, user, dude, id} = this.props;
         const {displayName, email} = dude;
 
         return (

@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5db85d3-0106-40ac-b0ef-30641d337464" name="Default Changelist" comment="react refactor">
-      <change beforePath="$PROJECT_DIR$/.idea/DataOrData.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataordata/src/API/Rout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataordata/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataordata/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataordata/src/api/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataordata/src/api/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataordata/src/components/TrainingForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataordata/src/components/TrainingForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataordata/src/components/UserCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataordata/src/components/UserCard.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +27,7 @@
         <counts>
           <entry key="css" value="3" />
           <entry key="gitignore" value="7" />
-          <entry key="js" value="3928" />
+          <entry key="js" value="4629" />
           <entry key="jsx" value="345" />
           <entry key="txt" value="29" />
         </counts>
@@ -35,7 +36,7 @@
         <counts>
           <entry key="CSS" value="3" />
           <entry key="JSX Harmony" value="345" />
-          <entry key="JavaScript" value="3928" />
+          <entry key="JavaScript" value="4629" />
           <entry key="PLAIN_TEXT" value="36" />
         </counts>
       </usages-collector>
@@ -44,7 +45,7 @@
           <entry key="TrainingForm" value="1" />
           <entry key="css" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="js" value="15" />
+          <entry key="js" value="16" />
           <entry key="json" value="2" />
           <entry key="ts" value="2" />
         </counts>
@@ -53,7 +54,7 @@
         <counts>
           <entry key="CSS" value="1" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="13" />
+          <entry key="JavaScript" value="14" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="TypeScript" value="2" />
         </counts>
@@ -72,14 +73,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataordata/src/components/UserCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1783">
-              <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1076">
+              <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -96,8 +94,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataordata/src/containers/CardContainer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+            <state relative-caret-position="283">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -105,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dataordata/src/components/TrainingForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="273">
+              <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -120,8 +118,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataordata/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="123" column="19" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
+            <state relative-caret-position="93">
+              <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -141,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataordata/src/api/route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
+            <state relative-caret-position="161">
+              <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -165,6 +163,7 @@
       <find>user</find>
       <find>this.state</find>
       <find>img</find>
+      <find>getData</find>
       <find>items</find>
     </findStrings>
   </component>
@@ -187,11 +186,11 @@
         <option value="$PROJECT_DIR$/dataordata/.gitignore" />
         <option value="$PROJECT_DIR$/dataordata/src/components/LoginButton.js" />
         <option value="$PROJECT_DIR$/dataordata/src/components/Navbar.js" />
-        <option value="$PROJECT_DIR$/dataordata/src/api/route.js" />
-        <option value="$PROJECT_DIR$/dataordata/src/components/TrainingForm.js" />
-        <option value="$PROJECT_DIR$/dataordata/src/App.js" />
         <option value="$PROJECT_DIR$/dataordata/src/containers/CardContainer.jsx" />
         <option value="$PROJECT_DIR$/dataordata/src/components/UserCard.js" />
+        <option value="$PROJECT_DIR$/dataordata/src/App.js" />
+        <option value="$PROJECT_DIR$/dataordata/src/api/route.js" />
+        <option value="$PROJECT_DIR$/dataordata/src/components/TrainingForm.js" />
       </list>
     </option>
   </component>
@@ -2461,7 +2460,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550389296046" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550393140551" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="show.migrate.to.gradle.popup" value="false" />
@@ -2489,7 +2488,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550372654974</updated>
-      <workItem from="1550372660690" duration="15066000" />
+      <workItem from="1550372660690" duration="17358000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore">
       <created>1550384596576</created>
@@ -2516,10 +2515,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15066000" />
+    <option name="totallyTimeSpent" value="17358000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -2644,13 +2644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataordata/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dataordata/src/components/LoginButton.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="604">
@@ -2661,40 +2654,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataordata/src/api/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataordata/src/components/TrainingForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="37" selection-end-line="58" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataordata/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="123" column="19" selection-start-line="123" selection-start-column="19" selection-end-line="123" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/dataordata/src/api/Rout.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/dataordata/src/containers/CardContainer.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="283">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataordata/src/components/UserCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1076">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -2705,12 +2681,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dataordata/src/components/UserCard.js">
+    <entry file="file://$PROJECT_DIR$/dataordata/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1783">
-          <caret line="95" column="37" lean-forward="true" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
+        <state relative-caret-position="46">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataordata/src/api/route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataordata/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="67" column="62" selection-start-line="67" selection-start-column="62" selection-end-line="67" selection-end-column="62" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataordata/src/components/TrainingForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

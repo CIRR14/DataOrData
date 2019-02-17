@@ -13,7 +13,8 @@ class TrainingForm extends Component {
             username: '',
             items: [],
             data: [],
-            user: ''
+            user: '',
+            doneLoading:false,
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,6 +22,14 @@ class TrainingForm extends Component {
         // this.logout = this.logout.bind(this);
     }
 
+
+    async  componentDidMount(){
+        const data = await getData();
+        this.setState({data})
+        console.log("RECORDS:::::", data);
+        console.log(this.state.data)
+        this.setState({doneLoading: true})
+    }
 
     handleChange(e) {
         this.setState({
@@ -48,7 +57,10 @@ class TrainingForm extends Component {
 
     render() {
         const {classes, user, item} = this.props;
+        const {data} = this.state;
         return (
+            <div>
+            {this.state.doneLoading &&
             <div className={classes.root}>
                 {console.log(this.state)}
 
@@ -63,11 +75,18 @@ class TrainingForm extends Component {
                         <Button type="submit" className={classes.button}>Add </Button>
                         <Divider/>
                         <div>
-                            DATA
+                            Location: {data[1].fields.city}, {data[1].fields.state},
+                            Date: {data[1].fields.date_detailed},
+                            {data[1].fields.description},
+
+
+
                         </div>
 
                     </form>
                 </Card>
+            </div>
+    }
             </div>
         );
     }
