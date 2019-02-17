@@ -10,6 +10,7 @@ import {provider} from "./firebase";
 // import Container from 'react-grid-system';
 
 
+
 class App extends Component {
 
   constructor(props) {
@@ -19,6 +20,8 @@ class App extends Component {
       username: '',
       items: [],
       user: null,
+
+      datas: [],
     }
       // this.handleChange = this.handleChange.bind(this);
       // this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,12 +79,19 @@ class App extends Component {
     //    //sends copy of object to Firebase so it can be stored//
     // }
   componentDidMount() {
+
+    axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=mass-shootings-in-america&facet=city&facet=state&facet=shooter_sex&facet=shooter_race&facet=type_of_gun_general&facet=fate_of_shooter_at_the_scene&facet=shooter_s_cause_of_death&facet=school_related&facet=place_type&facet=relationship_to_incident_location&facet=targeted_victim_s_general&facet=possible_motive_general&facet=history_of_mental_illness_general&facet=military_experience`)
+    .then(res => {
+      const datas = res.data;
+      this.setState({ datas });
+    })
     //Keeps you signed in when you refresh the page//
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
       }
     });
+
     //Keeps you signed in when you refresh the page//
 
     const itemsRef = firebase.database().ref('items');
@@ -110,6 +120,7 @@ class App extends Component {
       let {user, currentItem} = this.state;
     
     return (
+
       <div className='app'>
           <Navbar user={user}/>
         {this.state.user ?
@@ -136,4 +147,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
