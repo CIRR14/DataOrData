@@ -84,6 +84,15 @@ class UserCard extends React.Component {
                         <Typography paragraph>Report:</Typography>
                         <Typography paragraph>
                             Show Data
+                            <div className="report">
+                                <p><bold>(add timestamp)</bold></p>
+                                <p>
+                                    {user}
+                                    (died or lived **collect boolean, if true then live, if false then die**) </p>
+                                <p>
+                                    {user}
+                                    chose to (**collect to (**run/hide/fought**) and (lived/died**boolean**)</p>
+                            </div>
                         </Typography>
                     </CardContent>
                 </Collapse>
