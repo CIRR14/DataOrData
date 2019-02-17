@@ -1,10 +1,10 @@
-import React from "react";
+import React, {Component} from "react";
 
 import PropTypes from "prop-types";
 
-import { withStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
-import LoginButton from "./LoginButton";
+import {withStyles} from "@material-ui/core/styles";
+import {AppBar, Button, Toolbar, Typography} from "@material-ui/core";
+import {auth, provider} from "../firebase";
 
 
 const styles = {
@@ -14,31 +14,67 @@ const styles = {
     grow: {
         flexGrow: 1
     },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20,
-        color: "white"
-    },
     navbar:{
         backgroundColor: '#283947'
+    },
+    button: {
+        backgroundColor: '#DCAB8B',
+        color: '#000',
     }
 };
 
-const ButtonAppBar = (props) => {
-    const { classes } = props;
-    return (
-        <div className={classes.root}>
-            <AppBar position="static" className={classes.navbar}>
-                <Toolbar>
-                    <img src="../logo.svg" alt="sst logo" height="40px" width="40px"/>
-                    <Typography variant="h4" color="inherit" className={classes.grow}>
-                        SST
-                    </Typography>
-                    <LoginButton/>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
+
+
+class ButtonAppBar extends Component{
+constructor(props) {
+    super(props)
+
+    this.state= {
+
+    }
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+
+}
+    logout() {
+        auth.signOut()
+            .then(() => {
+                this.setState({
+                    user: null
+                });
+            });
+    }
+
+    login() {
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                const user = result.user;
+                this.setState({
+                    user
+                });
+            });
+    }
+    render () {
+
+    const {classes, user} = this.props;
+        return (
+            <div className={classes.root}>
+                <AppBar position="static" className={classes.navbar}>
+                    <Toolbar>
+                        <img src="../logo.svg" alt="sst logo" height="40px" width="40px"/>
+                        <Typography variant="h4" color="inherit" className={classes.grow}>
+                            SST
+                        </Typography>
+                        {user ?
+                            <Button className={classes.button} color="inherit" onClick={this.logout}> Log Out </Button>
+                            :
+                            <Button className={classes.button} color="inherit" onClick={this.login}> Log In </Button>
+                        }
+                    </Toolbar>
+                </AppBar>
+            </div>
+        );
+    }
 };
 
 

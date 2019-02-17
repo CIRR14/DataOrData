@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Card, withStyles} from '@material-ui/core'
 import firebase from "../firebase";
+import Divider from "@material-ui/core/Divider/Divider";
+import getData from '../api/route'
 
 class TrainingForm extends Component {
 
@@ -10,6 +12,7 @@ class TrainingForm extends Component {
             currentItem: '',
             username: '',
             items: [],
+            data: [],
             user: ''
         }
         this.handleChange = this.handleChange.bind(this);
@@ -17,6 +20,7 @@ class TrainingForm extends Component {
         // this.login = this.login.bind(this);
         // this.logout = this.logout.bind(this);
     }
+
 
     handleChange(e) {
         this.setState({
@@ -28,22 +32,17 @@ class TrainingForm extends Component {
         e.preventDefault();
         const itemsRef = firebase.database().ref('items'); //spot in database to store items//
 
-        //grab what the user typed in//
         const item = {
             title: this.state.currentItem,
             user: this.props.user.displayName || this.props.user.email
         };
-        //grab what the user typed in//
 
-
-        //sends copy of object to Firebase so it can be stored//
         itemsRef.push(item);
 
         this.setState({
             currentItem: '', //clears out inputs
             username: '' //clears out inputs
         });
-        //sends copy of object to Firebase so it can be stored//
     }
 
 
@@ -62,6 +61,11 @@ class TrainingForm extends Component {
                                placeholder="Who is doing the training?" onChange={this.handleChange}
                                value={item.currentItem}/>
                         <Button type="submit" className={classes.button}>Add </Button>
+                        <Divider/>
+                        <div>
+                            DATA
+                        </div>
+
                     </form>
                 </Card>
             </div>

@@ -15,9 +15,6 @@ const styles = theme => ({
         height: 0,
         paddingTop: '56.25%', // 16:9
     },
-    actions: {
-        display: 'flex',
-    },
     expand: {
         transform: 'rotate(0deg)',
         marginLeft: 'auto',
@@ -37,6 +34,9 @@ const styles = theme => ({
     },
     button: {
         backgroundColor: '#DCAB8B'
+    },
+    remove:{
+        color: '#ff001d'
     }
 });
 
@@ -46,14 +46,15 @@ class UserCard extends React.Component {
     handleExpandClick = () => {
         this.setState(state => ({expanded: !state.expanded}));
     };
-    removeItem(itemId) {
-        const itemRef = firebase.database().ref(`/items/${itemId}`);
-        itemRef.remove();
-    }
+    removeItem = async(id) => {
+        const itemRef = firebase.database().ref(`/items/${id}`);
+        await itemRef.remove();
+    };
 
 
     render() {
-        const {classes, item, user} = this.props;
+        const {classes, item, user, dude, id} = this.props;
+        const {displayName, email} = dude;
 
         return (
             <Card className={classes.card}>
@@ -64,9 +65,8 @@ class UserCard extends React.Component {
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
-                    {console.log('user: ', user)}
-                    {user === user.displayName || user === user.email ?
-                        <IconButton className="remove" onClick={() => this.removeItem(item.id)}><Delete/></IconButton> : null}
+                    {user === displayName || user === email ?
+                        <Button className={classes.remove} onClick={() => this.removeItem(id)}><Delete/></Button> : null}
                     <Button
                         className={classnames(classes.expand, {
                             [classes.expandOpen]: this.state.expanded,

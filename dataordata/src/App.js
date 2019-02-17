@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import CardContainer from "./containers/CardContainer";
 import TrainingForm from "./components/TrainingForm";
 import Grid from "@material-ui/core/Grid/Grid";
+import {provider} from "./firebase";
 
 // import Container from 'react-grid-system';
 
@@ -32,23 +33,24 @@ class App extends Component {
     // }
 
   //LOGIN AND LOGOUT BUTTONS/FUNCTIONS//
-    // logout(){
-    //     auth.signOut()
-    //     .then(() => {
-    //       this.setState({
-    //         user: null
-    //       });
-    //     });
-    // }
-    //
-    // login(){
-    //   auth.signInWithPopup(provider)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     this.setState({
-    //       user
-    //     });
-    //   });
+  //   logout() {
+  //       auth.signOut()
+  //           .then(() => {
+  //               this.setState({
+  //                   user: null
+  //               });
+  //           });
+  //   }
+  //
+  //   login() {
+  //       auth.signInWithPopup(provider)
+  //           .then((result) => {
+  //               const user = result.user;
+  //               this.setState({
+  //                   user
+  //               });
+  //           });
+  //   }
     // }
   //LOGIN AND LOGOUT BUTTONS/FUNCTIONS//
 
@@ -99,27 +101,17 @@ class App extends Component {
     });
   }
 
-  //Remove item function//
-
-  //remove item function//
-  
-
-
-  // collect of item function//
-
-  // collect of item function//
-
-
   render() {
 
 
       let myArray = this.state.items.reverse();
+      console.log('myArray: ', myArray)
 
       let {user, currentItem} = this.state;
     
     return (
       <div className='app'>
-          <Navbar/>
+          <Navbar user={user}/>
         {this.state.user ?
       <div>
         <div className= 'user-profile'>
@@ -127,11 +119,11 @@ class App extends Component {
         </div>
           <Grid container justify="center">
             <Grid item xs={4}>
-                {console.log(user)}
+                {console.log('userrrrr:', user.email)}
               <TrainingForm user={user} item={currentItem}/>
             </Grid>
             <Grid item xs={8}>
-              <CardContainer array={myArray}/>
+              <CardContainer user={user} array={myArray}/>
             </Grid>
           </Grid>
         </div>
