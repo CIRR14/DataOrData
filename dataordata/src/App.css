@@ -121,7 +121,7 @@ li h3 {
 }
 
 li p {
-  padding: 15px;
+  padding: 2px;
 }
 
 form button {
@@ -146,17 +146,14 @@ button {
   background-color: #ED553B;
 }
 
-.collapsible{
 
-}
-
-.active, .collapsible:hover {
+.active, .button:hover {
   background-color: #283947;
 }
 
 .report{
   padding: 0 18px;
-  /* display: none; */
+  /* display: none;  */
   overflow: hidden;
   background-color: #f1f1f1;
 }

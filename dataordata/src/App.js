@@ -168,14 +168,12 @@ for (i = 0; i < coll.length; i++) {
                   <ul>
                     {myArray.map((item) => {
                       return (
-                    
-                        
                         <li key={item.id}>
 
                         <div container>
                     
                         <div row>
-                          <h3>Completed by: <b>{item.title}</b></h3>
+                          <h3> Completed by: <b>{item.title}</b></h3>
                         </div>
                           
                         <div row>
@@ -188,17 +186,17 @@ for (i = 0; i < coll.length; i++) {
                               <button className="remove" onClick={() => this.removeItem(item.id)}>Remove</button> : null}
                           </div>
                           <div col>
-                              <button className="collapsible">See Report</button>
+                              <button>See Report</button>
                           </div>
                         </div>
 
-                              <div row className = "report">
-                                <p> show data here </p>
+                              <div row className = "report" >
+                                <center><p><bold>(add timestamp)</bold></p></center>
+                                <p> {item.title} (died or lived **collect boolean, if true then live, if false then die**) </p>
+                                <p>{item.title} chose (**collect to (**run/hide/fought**)</p>
                               </div>
 
                         </div>
-                        
-
                         </li>
                  
                       )
