@@ -13,6 +13,9 @@ class App extends Component {
       username: '',
       items: [],
       user: null,
+      data: [],
+      error: null,
+      isLoading: true
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,7 +49,9 @@ class App extends Component {
   }
   //LOGIN AND LOGOUT BUTTONS/FUNCTIONS//
 
-  
+
+
+
   handleSubmit(e) {
     e.preventDefault();
     const itemsRef = firebase.database().ref('items'); //spot in database to store items//
@@ -68,6 +73,7 @@ class App extends Component {
      //sends copy of object to Firebase so it can be stored//
   }
   componentDidMount() {
+    this.fetchData();
     //Keeps you signed in when you refresh the page//
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -99,8 +105,19 @@ class App extends Component {
     itemRef.remove();
   }
   //remove item function//
-  
 
+  
+fetchData() {
+  fetch (`https://public.opendatasoft.com/api/records/1.0/search/?dataset=mass-shootings-in-america&facet=city&facet=state&facet=shooter_sex&facet=shooter_race&facet=type_of_gun_general&facet=fate_of_shooter_at_the_scene&facet=shooter_s_cause_of_death&facet=school_related&facet=place_type&facet=relationship_to_incident_location&facet=targeted_victim_s_general&facet=possible_motive_general&facet=history_of_mental_illness_general&facet=military_experience`)
+  .then( response => response.json())
+  .then(data =>
+  this.setState({
+    data: data,
+    isLoading: false,
+  })
+)
+.catch(error => this.setState({error, isLoading: false}));
+}
 
   // collect of item function//
 
@@ -109,30 +126,13 @@ class App extends Component {
 
   render() {
 
-
-
-
-    var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-
-
+const { isLoading, error, data } = this.state;
 
 
     let myArray = this.state.items.reverse();
     
     return (
+
       <div className='app'>
         <header>
             <div className="wrapper">
@@ -156,12 +156,36 @@ for (i = 0; i < coll.length; i++) {
         <img src = {this.state.user.photoURL} />
         </div>
                 <div className='container'>
+      
             <section className='add-item'>
               <form onSubmit={this.handleSubmit}>
                 <input type="text" name="username" placeholder="Staff Member" value={this.state.user.displayName || this.state.user.email} />
                 <input type="text" name="currentItem" placeholder="Who is doing the training?" onChange={this.handleChange} value={this.state.currentItem} />
                 <button>Add </button>
               </form>
+
+
+              <>
+              <h1> get data </h1>
+
+              {error ? <p>{error.message}</p> : null}
+
+              {!isLoading ? (
+                data.map(data => {
+                  const { key, value } = data;
+                  return(
+                    <div key={key}>
+                    <p> Value: {value}</p>
+                    <hr />
+                    </div>
+                  );
+                })
+              ) : (
+                <h3> Loading... </h3>
+              
+              )}
+
+              </>
             </section>
             <section className='display-item'>
                 <div className="wrapper">
@@ -190,7 +214,7 @@ for (i = 0; i < coll.length; i++) {
                           </div>
                         </div>
 
-                              <div row className = "report" >
+                              <div className="report">
                                 <center><p><bold>(add timestamp)</bold></p></center>
                                 <p> {item.title} (died or lived **collect boolean, if true then live, if false then die**) </p>
                                 <p>{item.title} chose (**collect to (**run/hide/fought**)</p>
@@ -215,4 +239,5 @@ for (i = 0; i < coll.length; i++) {
     );
   }
 }
+
 export default App;

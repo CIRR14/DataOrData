@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "318f4d18-d623-468e-bd64-556cae9134f3",
+		"name": "UMSLHACK2019",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://public.opendatasoft.com/api/records/1.0/search/?dataset=mass-shootings-in-america&facet=city&facet=state&facet=shooter_sex&facet=shooter_race&facet=type_of_gun_general&facet=fate_of_shooter_at_the_scene&facet=shooter_s_cause_of_death&facet=school_related&facet=place_type&facet=relationship_to_incident_location&facet=targeted_victim_s_general&facet=possible_motive_general&facet=history_of_mental_illness_general&facet=military_experience",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2bd68367-54d8-4987-9704-af3b3ed493c7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () { pm.response.to.have.status(200);});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://public.opendatasoft.com/api/records/1.0/search/?dataset=mass-shootings-in-america&facet=city&facet=state&facet=shooter_sex&facet=shooter_race&facet=type_of_gun_general&facet=fate_of_shooter_at_the_scene&facet=shooter_s_cause_of_death&facet=school_related&facet=place_type&facet=relationship_to_incident_location&facet=targeted_victim_s_general&facet=possible_motive_general&facet=history_of_mental_illness_general&facet=military_experience",
+					"protocol": "https",
+					"host": [
+						"public",
+						"opendatasoft",
+						"com"
+					],
+					"path": [
+						"api",
+						"records",
+						"1.0",
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "dataset",
+							"value": "mass-shootings-in-america"
+						},
+						{
+							"key": "facet",
+							"value": "city"
+						},
+						{
+							"key": "facet",
+							"value": "state"
+						},
+						{
+							"key": "facet",
+							"value": "shooter_sex"
+						},
+						{
+							"key": "facet",
+							"value": "shooter_race"
+						},
+						{
+							"key": "facet",
+							"value": "type_of_gun_general"
+						},
+						{
+							"key": "facet",
+							"value": "fate_of_shooter_at_the_scene"
+						},
+						{
+							"key": "facet",
+							"value": "shooter_s_cause_of_death"
+						},
+						{
+							"key": "facet",
+							"value": "school_related"
+						},
+						{
+							"key": "facet",
+							"value": "place_type"
+						},
+						{
+							"key": "facet",
+							"value": "relationship_to_incident_location"
+						},
+						{
+							"key": "facet",
+							"value": "targeted_victim_s_general"
+						},
+						{
+							"key": "facet",
+							"value": "possible_motive_general"
+						},
+						{
+							"key": "facet",
+							"value": "history_of_mental_illness_general"
+						},
+						{
+							"key": "facet",
+							"value": "military_experience"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
