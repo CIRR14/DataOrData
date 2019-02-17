@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase, {auth, provider} from './firebase.js';
-// import Container from 'react-grid-system';
+import axios from 'axios';
+
 
 
 class App extends Component {
@@ -13,9 +14,8 @@ class App extends Component {
       username: '',
       items: [],
       user: null,
-      data: [],
-      error: null,
-      isLoading: true
+
+      datas: [],
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,7 +50,11 @@ class App extends Component {
   //LOGIN AND LOGOUT BUTTONS/FUNCTIONS//
 
 
-
+  // async fetchData(data) {
+  //   console.log("cnjfdcnfe")
+  //  await this.setState({data});
+  //  console.log(data)
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -72,14 +76,27 @@ class App extends Component {
     });
      //sends copy of object to Firebase so it can be stored//
   }
+
+  // componentWillMount(){
+  //   console.log(this.state)
+  //   this.fetchData();
+  //   console.log(this.state)
+
+  // }
   componentDidMount() {
-    this.fetchData();
+
+    axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=mass-shootings-in-america&facet=city&facet=state&facet=shooter_sex&facet=shooter_race&facet=type_of_gun_general&facet=fate_of_shooter_at_the_scene&facet=shooter_s_cause_of_death&facet=school_related&facet=place_type&facet=relationship_to_incident_location&facet=targeted_victim_s_general&facet=possible_motive_general&facet=history_of_mental_illness_general&facet=military_experience`)
+    .then(res => {
+      const datas = res.data;
+      this.setState({ datas });
+    })
     //Keeps you signed in when you refresh the page//
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
       }
     });
+
     //Keeps you signed in when you refresh the page//
 
     const itemsRef = firebase.database().ref('items');
@@ -106,18 +123,9 @@ class App extends Component {
   }
   //remove item function//
 
-  
-fetchData() {
-  fetch (`https://public.opendatasoft.com/api/records/1.0/search/?dataset=mass-shootings-in-america&facet=city&facet=state&facet=shooter_sex&facet=shooter_race&facet=type_of_gun_general&facet=fate_of_shooter_at_the_scene&facet=shooter_s_cause_of_death&facet=school_related&facet=place_type&facet=relationship_to_incident_location&facet=targeted_victim_s_general&facet=possible_motive_general&facet=history_of_mental_illness_general&facet=military_experience`)
-  .then( response => response.json())
-  .then(data =>
-  this.setState({
-    data: data,
-    isLoading: false,
-  })
-)
-.catch(error => this.setState({error, isLoading: false}));
-}
+
+
+
 
   // collect of item function//
 
@@ -125,9 +133,6 @@ fetchData() {
 
 
   render() {
-
-const { isLoading, error, data } = this.state;
-
 
     let myArray = this.state.items.reverse();
     
@@ -163,29 +168,14 @@ const { isLoading, error, data } = this.state;
                 <input type="text" name="currentItem" placeholder="Who is doing the training?" onChange={this.handleChange} value={this.state.currentItem} />
                 <button>Add </button>
               </form>
+            <div>
 
+<ul>
+  { this.state.data.map(dat => <li> {dat.test}</li>)}
+  </ul>
 
-              <>
-              <h1> get data </h1>
+              </div>
 
-              {error ? <p>{error.message}</p> : null}
-
-              {!isLoading ? (
-                data.map(data => {
-                  const { key, value } = data;
-                  return(
-                    <div key={key}>
-                    <p> Value: {value}</p>
-                    <hr />
-                    </div>
-                  );
-                })
-              ) : (
-                <h3> Loading... </h3>
-              
-              )}
-
-              </>
             </section>
             <section className='display-item'>
                 <div className="wrapper">
@@ -217,7 +207,7 @@ const { isLoading, error, data } = this.state;
                               <div className="report">
                                 <center><p><bold>(add timestamp)</bold></p></center>
                                 <p> {item.title} (died or lived **collect boolean, if true then live, if false then die**) </p>
-                                <p>{item.title} chose (**collect to (**run/hide/fought**)</p>
+                                <p>{item.title} chose to (**collect to (**run/hide/fought**) and (lived/died**boolean**)</p>
                               </div>
 
                         </div>
