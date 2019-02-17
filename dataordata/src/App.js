@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase, {auth, provider} from './firebase.js';
+// import Container from 'react-grid-system';
+
 
 class App extends Component {
 
@@ -167,28 +169,38 @@ for (i = 0; i < coll.length; i++) {
                     {myArray.map((item) => {
                       return (
                     
+                        
                         <li key={item.id}>
-                        <div class ="container">
-                    
 
+                        <div container>
+                    
+                        <div row>
                           <h3>Completed by: <b>{item.title}</b></h3>
-                          <div>Supervised by: <b>{item.user}</b>
+                        </div>
+                          
+                        <div row>
+                            Supervised by: <b>{item.user}</b>
+                        </div>
+
+                        <div row>
+                          <div col>
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ?
                               <button className="remove" onClick={() => this.removeItem(item.id)}>Remove</button> : null}
-
-                              </div>
-                    
-
+                          </div>
+                          <div col>
                               <button className="collapsible">See Report</button>
-                      
+                          </div>
+                        </div>
 
-                              <div className = "report">
+                              <div row className = "report">
                                 <p> show data here </p>
                               </div>
 
                         </div>
+                        
+
                         </li>
-                  
+                 
                       )
                     })}
                   </ul>
