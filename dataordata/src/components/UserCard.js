@@ -57,15 +57,15 @@ class UserCard extends React.Component {
 
 
     render() {
-        const {classes, user, dude, id} = this.props;
+        const {classes, user, dude, id, title} = this.props;
         const {displayName, email} = dude;
 
         return (
             <Card className={classes.card}>
-                <CardHeader className={classes.header} classes={{title: classes.header}} avatar={<PieChart/>} color="#fff" title={`Completed By: ${this.props.user}`}/>
+                <CardHeader className={classes.header} classes={{title: classes.header}} avatar={<PieChart/>} color="#fff" title={`Completed By: ${this.props.title}`}/>
                 <CardContent>
                     <Typography component="p">
-                        Supervised by: {this.props.title}
+                        Supervised by: {this.props.user}
                     </Typography>
                 </CardContent>
                 <CardActions className={classes.actions} disableActionSpacing>
@@ -88,13 +88,14 @@ class UserCard extends React.Component {
                         <Typography className={classes.report} paragraph>Report:</Typography>
                         <Typography paragraph>
                             <div className="report">
-                            <Typography align="center" className={classes.report} paragraph>(add timestamp)</Typography>
+                            <Typography align="center" className={classes.report} paragraph>2/17/2019</Typography>
                             <Typography paragraph>
-                                    {user} (died or lived **collect boolean, if true then live, if false then die**) 
+                                    {title} PASSED 
                             </Typography>
                             <Typography paragraph>
-                                    {user} chose to (**collect to (**run/hide/fought**) and (lived/died**boolean**)
+                                    {title} chose to FIGHT and LIVED
                             </Typography>
+                            <Typography align="center" className={classes.report} paragraph>CONGRATS!</Typography>
                             </div>
                         </Typography>
                     </CardContent>
