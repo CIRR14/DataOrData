@@ -1,72 +1,80 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
-import firebase, {auth, provider} from './firebase.js';
+import firebase, {auth} from './firebase.js';
+import Navbar from './components/Navbar';
+import CardContainer from "./containers/CardContainer";
+import TrainingForm from "./components/TrainingForm";
+import Grid from "@material-ui/core/Grid/Grid";
+import {provider} from "./firebase";
+
 // import Container from 'react-grid-system';
 
 
 class App extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       currentItem: '',
       username: '',
       items: [],
       user: null,
     }
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.login = this.login.bind(this); 
-    this.logout = this.logout.bind(this);
+      // this.handleChange = this.handleChange.bind(this);
+      // this.handleSubmit = this.handleSubmit.bind(this);
+      // this.login = this.login.bind(this);
+      // this.logout = this.logout.bind(this);
   }
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
+
+    // handleChange(e) {
+    //   this.setState({
+    //     [e.target.name]: e.target.value
+    //   });
+    // }
 
   //LOGIN AND LOGOUT BUTTONS/FUNCTIONS//
-  logout(){
-      auth.signOut()
-      .then(() => {
-        this.setState({
-          user: null
-        });
-      });
-  }
-
-  login(){
-    auth.signInWithPopup(provider)
-    .then((result) => {
-      const user = result.user;
-      this.setState({
-        user
-      });
-    });
-  }
+  //   logout() {
+  //       auth.signOut()
+  //           .then(() => {
+  //               this.setState({
+  //                   user: null
+  //               });
+  //           });
+  //   }
+  //
+  //   login() {
+  //       auth.signInWithPopup(provider)
+  //           .then((result) => {
+  //               const user = result.user;
+  //               this.setState({
+  //                   user
+  //               });
+  //           });
+  //   }
+    // }
   //LOGIN AND LOGOUT BUTTONS/FUNCTIONS//
 
-  
-  handleSubmit(e) {
-    e.preventDefault();
-    const itemsRef = firebase.database().ref('items'); //spot in database to store items//
-   
-    //grab what the user typed in//
-    const item = {
-      title: this.state.currentItem,
-      user: this.state.user.displayName || this.state.user.email
-    }
-    //grab what the user typed in//
 
-
-    //sends copy of object to Firebase so it can be stored//
-    itemsRef.push(item);
-    this.setState({
-      currentItem: '', //clears out inputs
-      username: '' //clears out inputs
-    });
-     //sends copy of object to Firebase so it can be stored//
-  }
+    // handleSubmit(e) {
+    //   e.preventDefault();
+    //   const itemsRef = firebase.database().ref('items'); //spot in database to store items//
+    //
+    //   //grab what the user typed in//
+    //   const item = {
+    //     title: this.state.currentItem,
+    //     user: this.state.user.displayName || this.state.user.email
+    //   }
+    //   //grab what the user typed in//
+    //
+    //
+    //   //sends copy of object to Firebase so it can be stored//
+    //   itemsRef.push(item);
+    //   this.setState({
+    //     currentItem: '', //clears out inputs
+    //     username: '' //clears out inputs
+    //   });
+    //    //sends copy of object to Firebase so it can be stored//
+    // }
   componentDidMount() {
     //Keeps you signed in when you refresh the page//
     auth.onAuthStateChanged((user) => {
@@ -93,120 +101,31 @@ class App extends Component {
     });
   }
 
-  //Remove item function//
-  removeItem(itemId) {
-    const itemRef = firebase.database().ref(`/items/${itemId}`);
-    itemRef.remove();
-  }
-  //remove item function//
-  
-
-
-  // collect of item function//
-
-  // collect of item function//
-
-
   render() {
 
 
+      let myArray = this.state.items.reverse();
+      console.log('myArray: ', myArray)
 
-
-    var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-
-
-
-
-    let myArray = this.state.items.reverse();
+      let {user, currentItem} = this.state;
     
     return (
       <div className='app'>
-        <header>
-            <div className="wrapper">
-              <h1>
-                <img 
-    src="logo.svg" 
-    alt=""
-    height="40px"
-    width="40px" /> SST
-              </h1>
-              {this.state.user ?
-                  <button onClick = {this.logout}> Log Out </button>
-                  :
-                  <button onClick = {this.login}> Log In </button>
-              }
-            </div>
-        </header>
+          <Navbar user={user}/>
         {this.state.user ?
       <div>
         <div className= 'user-profile'>
         <img src = {this.state.user.photoURL} />
         </div>
-                <div className='container'>
-            <section className='add-item'>
-              <form onSubmit={this.handleSubmit}>
-                <input type="text" name="username" placeholder="Staff Member" value={this.state.user.displayName || this.state.user.email} />
-                <input type="text" name="currentItem" placeholder="Who is doing the training?" onChange={this.handleChange} value={this.state.currentItem} />
-                <button>Add </button>
-              </form>
-            </section>
-            <section className='display-item'>
-                <div className="wrapper">
-                  <ul>
-                    {myArray.map((item) => {
-                      return (
-                    
-                        
-                        <li key={item.id}>
-
-                        <div container>
-                    
-                        <div row>
-                          <h3>Completed by: <b>{item.title}</b></h3>
-                        </div>
-                          
-                        <div row>
-                            Supervised by: <b>{item.user}</b>
-                        </div>
-
-                        <div row>
-                          <div col>
-                            {item.user === this.state.user.displayName || item.user === this.state.user.email ?
-                              <button className="remove" onClick={() => this.removeItem(item.id)}>Remove</button> : null}
-                          </div>
-                          <div col>
-                              <button className="collapsible">See Report</button>
-                          </div>
-                        </div>
-
-                              <div row className = "report">
-                                <p> show data here </p>
-                              </div>
-
-                        </div>
-                        
-
-                        </li>
-                 
-                      )
-                    })}
-                  </ul>
-                </div>
-            </section>
-          </div>
+          <Grid container justify="center">
+            <Grid item xs={4}>
+                {console.log('userrrrr:', user.email)}
+              <TrainingForm user={user} item={currentItem}/>
+            </Grid>
+            <Grid item xs={8}>
+              <CardContainer user={user} array={myArray}/>
+            </Grid>
+          </Grid>
         </div>
         :
         <div className='wrapper'>
