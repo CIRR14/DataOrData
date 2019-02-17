@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Button, Card, withStyles} from '@material-ui/core'
 import firebase from "../firebase";
 import Divider from "@material-ui/core/Divider/Divider";
-import getData from '../api/route'
+import getData from '../api/route';
 
 class TrainingForm extends Component {
 
